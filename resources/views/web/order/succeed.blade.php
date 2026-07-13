@@ -69,7 +69,7 @@
                 @if($setting->get('logo_type')->value() == 1)
                     {!! $setting->get('logo_svg') !!}
                 @else
-                    <img class="g-logo" src="{{ storage_url($setting->get('logo')) }}" alt="logo">
+                    <img class="g-logo" src="{{ ($logo = $setting->get('logo')->value()) ? storage_url($logo) : '' }}" alt="logo">
                 @endif
             </a>
         </div>

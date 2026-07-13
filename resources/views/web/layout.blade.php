@@ -24,7 +24,7 @@
     <meta property="og:site_name" content="{{ $setting->get('site_name') }}" />
     <meta name="robots" content="noarchive" />
     <link rel="canonical" href="{{ config('app.url') }}/{{ trim(request()->path(),'/') }}">
-    <link rel="shortcut icon" href="{{ $setting->get('favicon') ? storage_url($setting->get('favicon')):'/favicon.ico' }}">
+    <link rel="shortcut icon" href="{{ ($favicon = $setting->get('favicon')->value()) ? storage_url($favicon) : '/favicon.ico' }}">
     <style>
         :root{
             --main-color: {{ $setting->get('main_color') }};
@@ -108,7 +108,7 @@
         @if($setting->get('logo_type') == '1')
             {!! $setting->get('logo_svg') !!}
         @else
-            <img class="g-logo" src="{{ storage_url($setting->get('logo')) }}" alt="禮來犀利士壯陽藥官網logo">
+            <img class="g-logo" src="{{ ($logo = $setting->get('logo')->value()) ? storage_url($logo) : '' }}" alt="禮來犀利士壯陽藥官網logo">
         @endif
     </a>
     <div class="nav-sec">
@@ -201,7 +201,7 @@
             @if($setting->get('logo_type') == '1')
                 {!! $setting->get('logo_svg') !!}
             @else
-                <img class="g-logo" src="{{ storage_url($setting->get('logo')) }}" alt="logo">
+                <img class="g-logo" src="{{ ($logo = $setting->get('logo')->value()) ? storage_url($logo) : '' }}" alt="logo">
             @endif
         </a>
         <a href="https://twitter.com/intent/tweet?url=https://0nlinecialis.com&text=犀利士線上訂購官網" target="_blank" rel="noopener noreferrer nofollow">

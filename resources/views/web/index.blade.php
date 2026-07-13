@@ -179,8 +179,8 @@
             <p class="text">{{ $setting->get('home_lilly_about_desc') }}</p>
             <a class="more" href="{{ URL::to('about') }}" title="點擊了解更多 關於禮來犀利士">了解更多 關於禮來犀利士</a>
         </div>
-        <img class="float-image" src="{{ storage_url($setting->get('home_pill_img')) }}" loading="lazy">
-        <div class="image wow animate__animated animate__fadeInUp"><img class="scale-img" src="{{ storage_url($setting->get('home_about_img')) }}"></div>
+        <img class="float-image" src="{{ ($pill = $setting->get('home_pill_img')->value()) ? storage_url($pill) : '' }}" loading="lazy">
+        <div class="image wow animate__animated animate__fadeInUp"><img class="scale-img" src="{{ ($about = $setting->get('home_about_img')->value()) ? storage_url($about) : '' }}"></div>
     </div>
     <div id="chart" class="reverse container">
         <div class="chart-container">
